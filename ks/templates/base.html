@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang='en'>
   <head>
     <title>Kickstarter Success</title>
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/no-i-in-team/twitoff23/main/twitoff/static/css/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.css">
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="/index">Kickstarter Success</a>
+  <body class style>
+    <div class= "navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="/">Kickstarter Success</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -20,22 +22,43 @@
             <a class="nav-link" href="#">Contact</a></li>
         </ul>
       </div>
-    </nav>    
-    <article>
-      {% block content %}
-        <div>
-          <form>
-            <fieldset>
-              <legend>Target</legend>
-              <div class="form-group">
-                  <label for="target">Data/Url</label>
-                  <input type="text" name="#" id="target" placeholder="Tweet e.g. 'Space is Life!' ">
-                  <input type="submit" value="Input data or url here">
-              </div>
-            </fieldset>
-          </form>
+    </div>
+    {% block content %}
+    <div class="container">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-10 col-md-8 col-sm-6">
+            <h1>Will my startup make it?</h1>
+            <p class="lead">Based on the monetary goal, description, campaign length, or categories.</p>
+          </div>
         </div>
-      {% endblock %}
-    </article>
+      </div>
+      <div class="bs-docs-section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="bs-component">
+              <form>
+                <fieldset>
+                  <legend>Target</legend>
+                  <div class="form-group">
+                    <label for="target_text">Data/Url</label>
+                    <textarea class="form-control" id="target_text" rows="10"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="input_file">Submit file</label>
+                    <input type="file" class="form-control-file" id="input_file" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Something here?</small>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
   </body>
 </html>
