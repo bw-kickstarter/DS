@@ -10,6 +10,7 @@ pandas = "*"
 spacy = "*"
 gunicorn = "*"
 numpy = "*"
+flask-login = "*"
 
 [dev-packages]
 

@@ -6,6 +6,7 @@ from .models import DB, User
 
 auth = Blueprint('auth', __name__)
 
+
 @auth.route('/login', methods=['POST'])
 def login():
     email = request.form.get('email')
@@ -17,10 +18,11 @@ def login():
     if not cred or (cred.password != password):
         flash('Check your login credentials')
         return redirect(url_for('auth.login'))
-    
+
     login_user(cred, remember=remember)
-    
+
     return redirect(url_for('main.root'))
+
 
 @auth.route('/signup', methods=['POST'])
 def signup():

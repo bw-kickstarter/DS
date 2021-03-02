@@ -1,11 +1,33 @@
-dropdowns: usd_type
-blurb(short-pitch/subtitle/short description)  
-category
-goal
-location
-name
-state
-usd_type
-days_alloted
-days_before_launch
-location_type
+deprecated base.html:
+    <div class="container">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-10 col-md-8 col-sm-6">
+            <h1>Will my startup make it?</h1>
+          </div>
+        </div>
+      </div>
+      <div class="bs-docs-section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="bs-component">
+              <form>
+                <fieldset>
+                  <legend>Target</legend>
+                  <div class="form-group">
+                    <label for="target_text">Data/Url</label>
+                    <textarea class="form-control" id="target_text" rows="10"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="input_file">Submit file</label>
+                    <input type="file" class="form-control-file" id="input_file" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Something here?</small>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
