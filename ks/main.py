@@ -10,7 +10,7 @@ main = Blueprint('main', __name__)
 
 @main.route("/")
 def root():
-    """Directs you to signin/signout"""
+    """Directs you to signin"""
     return render_template("login.html", title="Register")
 
 @main.route("/home", methods = ["POST"])

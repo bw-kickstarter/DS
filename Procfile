@@ -1,1 +1,1 @@
-web: gunicorn ks:app -t 120
+web: gunicorn ks:APP -t 120
