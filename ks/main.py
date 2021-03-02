@@ -12,7 +12,7 @@ main = Blueprint('main', __name__)
 def root():
     """Redirects to home for now """
     return render_template("home.html")
-    # render_template("signup.html", title="Register")
+    # render_template("signup.html")
 
 @main.route("/home", methods = ["POST"])
 # @login_required
@@ -57,10 +57,26 @@ def predict_outcome():
     return render_template("success.html", ks_name=name) 
 
 
-# @main.route("/reset")
-# # @login_required
-# def reset():
-#     """Reset database"""
-#     DB.drop_all()
-#     DB.create_all()
-#     return render_template("home.html")
+@main.route("/success")
+# @login_required
+def success():
+    """Success endpoint"""
+    return render_template("success.html", ks_name="name") 
+                                            # name static for testing
+
+
+@main.route("/failure")
+# @login_required
+def failure():
+    """Failure endpoint"""
+    return render_template("failure.html", ks_name="name")
+                                            # name static for testing
+
+
+@main.route("/reset")
+# @login_required
+def reset():
+    """Reset database"""
+    DB.drop_all()
+    DB.create_all()
+    return render_template("home.html")
