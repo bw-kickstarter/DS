@@ -17,13 +17,12 @@ DB = SQLAlchemy()
 
 
 class Kickstarter(DB.Model):
-    """Kickstarter project information"""
+    """Table for Kickstarter projects"""
     id = DB.Column(DB.BigInteger, primary_key=True)
     user_email = DB.Column(DB.String(100))
-
     category = DB.Column(DB.String(50))
     blurb = DB.Column(DB.String(1000))
-    country = DB.Column(DB.String(3))
+    country = DB.Column(DB.String)
     goal = DB.Column(DB.BigInteger)
     location = DB.Column(DB.String(100))
     name = DB.Column(DB.String(100))
@@ -31,7 +30,7 @@ class Kickstarter(DB.Model):
     usd_type = DB.Column(DB.String)
     days_alloted = DB.Column(DB.Integer)
     days_before_launch = DB.Column(DB.Integer)
-    location_type = DB.Column(DB.String(20))
+    # location_type = DB.Column(DB.String)
 
     def __repr__(self):
         return "< Kickstarter: '{}' >".format(self.name)

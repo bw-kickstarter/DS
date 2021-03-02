@@ -14,14 +14,19 @@
         <div class="bs-component">
           <form>
             <fieldset>
-              <legend>Kickstarter Information</legend>
+              <legend>Form</legend>
               <div class="form-group">
                 <label for="user_email">Email</label>
                 <input type="email" class="form-control" id="user_email" placeholder="example@email.com" required>
+              <div class="form-group">
                 <label for="category">Category</label>
                 <input type="text" id="category" name="category" maxlength="40" required>
+              </div>
+              <div class="form-group">
                 <label for="blurb">Blurb</label>
                 <textarea class="form-control" id="blurb" rows="15" minlength="100" maxlength="1000" required></textarea>
+              </div>
+              <div class="form-group">
                 <label for="country">Country</label>
                 <select class="form-control" id="country" required>
                   <option>select one</option>
@@ -278,27 +283,43 @@
                   <option value="ZM">Zambia</option>
                   <option value="ZW">Zimbabwe</option>
                 </select>
+              </div>
+              <div class="form-group">
                 <label for="goal">Goal</label>
                 <input type="number" id="goal" name="goal" min="0" max="10000000" required>
+              </div>
+              <div class="form-group">
                 <label for="location">Location</label>
                 <input type="text" id="location" name="location" maxlength="50" required>
+              </div>
+              <div class="form-group">
                 <label for="name">Campaing Name</label>
                 <input type="text" id="name" name="name" maxlength="200" required>
+              </div>
+              <div class="form-group">
                 <label for="state">State</label>
                 <input type="text" id="state" name="state" required maxlength="50">
+              </div>
+              <div class="form-group">
                 <label for="usd_type">Accepted Currency</label>
                 <select class="form-control" id="usd_type" aria-describedby="usdtHelp" required>
                   <option>Domestic</option>
                   <option>International</option>
                 </select>
                 <small id="usdtHelp" class="form-text text-muted">Choose 'International' if currencies other than USD will be accepted</small>
+              </div>
+              <div class="form-group">
                 <label for="days_allocated">Days Allocated</label>
                 <input type="number" id="days_allocated" name="days_allocated" min="0" max="365" required>
+              </div>
+              <div class="form-group">
                 <label for="days_before_launch">Days Before Launch</label>
                 <input type="number" id="days_before_launch" name="days_before_launch" min="0" max="365" required>
-                <!-- <label for="location_type">Location Type</label>
-                <input type="text" id="location_type" name="location_type" maxlength="" required> -->
               </div>
+              <!-- <div class="form-group">
+                <label for="location_type">Location Type</label>
+                <input type="text" id="location_type" name="location_type" maxlength="" required>
+              </div> -->
               <button type="submit" class="btn btn-primary">Submit</button>
             </fieldset>
           </form>
