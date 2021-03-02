@@ -16,7 +16,7 @@ def root():
 
 @main.route("/home", methods = ["POST"])
 # @login_required
-def predict_outcome():
+def home():
     """Reads inputs and redirects"""
     ue = request.values["user_email"]
     cat = request.values["category"]
