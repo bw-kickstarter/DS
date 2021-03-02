@@ -1,0 +1,11 @@
+dropdowns: usd_type
+blurb(short-pitch/subtitle/short description)  
+category
+goal
+location
+name
+state
+usd_type
+days_alloted
+days_before_launch
+location_type
