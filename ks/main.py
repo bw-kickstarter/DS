@@ -10,12 +10,12 @@ main = Blueprint('main', __name__)
 
 @main.route("/")
 def root():
-    """Directs you to signin"""
-    return redirect(url_for('auth.login')) 
+    """Redirects to... """
+    return redirect(url_for('main.home')) 
     # render_template("signup.html", title="Register")
 
 @main.route("/home", methods = ["POST"])
-@login_required
+# @login_required
 def predict_outcome():
     """Reads inputs from forms and returns prediction.html or error"""
     ue = request.values["user_email"]
@@ -51,7 +51,7 @@ def predict_outcome():
 
 
 @main.route("/reset")
-@login_required
+# @login_required
 def reset():
     """Reset database"""
     DB.drop_all()
