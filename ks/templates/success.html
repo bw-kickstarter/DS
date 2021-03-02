@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="page-header" id="banner">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Will this Kickstarter campaign succeed?</h1>
+      </div>
+    </div>
+  </div>
+  <div class="bs-docs-section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="bs-component">
+          <blockquote class="blockquote text-right">
+            <p class="mb-0">
+              "The successful warrior is the average man, with laser-like focus."
+            </p>
+            <footer class="blockquote-footer">
+              Bruce Lee
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="bs-component">
+          <h3 class="text-danger">The odds are in your favor!</h2>
+          <p>
+            We are pleased to say that based on our analysis, Kickstarter '{{ ks_name }}' will most likely succeed!. Below is a breakdown of the how impactful individual sections of your proposal were to the prediction of our model. Feel free to make changes and <a href="/home.html">try again</a>!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

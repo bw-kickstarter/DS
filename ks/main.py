@@ -1,17 +1,17 @@
 """Routing file for Kickstarter Success App"""
 
 # from os import getenv
-from flask import Flask, render_template, request, redirect #Blueprint, url_for
+from flask import Flask, render_template, request, redirect, Blueprint #url_for
 # from flask_login import LoginManager , login_required, current_user
 from .models import Kickstarter, DB
 # from .predict import predict
 
-# main = Blueprint('main', __name__)
+main = Blueprint('main', __name__)
 
 @main.route("/")
 def root():
     """Redirects to home for now """
-    return redirect("/home") 
+    return render_template("home.html")
     # render_template("signup.html", title="Register")
 
 @main.route("/home", methods = ["POST"])
@@ -39,15 +39,22 @@ def predict_outcome():
 
         add_message = "Kickstarter project '{}' validated".format(name)
 
-        outcome = predict(db_entry)
+        # outcome = predict(db_entry)
 
-        predict_message = "'{}' Kickstarter model is more likley to {}".format(request.values["name"], "SUCCEED" if outcome else "FAIL")
+        # predict_message = "'{}' Kickstarter model is more likley to {}".format(request.values["name"], "SUCCEED" if outcome else "FAIL")
 
     except Exception as e:
         message = "Error adding '{}': {}".format(name, e)
 
-    return render_template("prediction.html", title="Prediction",
-        message1=add_message, message2=predict_message)
+        db_entry = []
+
+# TODO this HAS to be added:
+               # if outcome:
+               #     return render_template("success.html")
+
+               # else return render_template("failure.html")
+
+    return render_template("success.html", ks_name=name) 
 
 
 # @main.route("/reset")
