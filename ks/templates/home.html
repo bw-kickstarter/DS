@@ -4,7 +4,7 @@
   <div class="page-header" id="banner">
     <div class="row">
       <div class="col-lg-12">
-        <h1>Will this Kickstarter campaign succeed?</h1>
+        <h2>Will this Kickstarter campaign succeed?</h2>
       </div>
     </div>
   </div>
@@ -14,18 +14,20 @@
         <div class="bs-component">
           <form action="/home" method="post">
             <fieldset>
-              <legend>Input Kickstarter's information</legend>
+              <legend>Information (all fields required)</legend>
               <div class="form-row">
                 <div class="col-6">
-                  <input type="email" class="form-control" id="user_email" placeholder="Email" required>
+                  <label for="user_email">Email</label>
+                  <input type="email" class="form-control" id="user_email" placeholder="example@email.com" required>
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" id="category" name="category" maxlength="40" placeholder="Category" required>
+                  <label for="category">Category</label>
+                  <input type="text" class="form-control" id="category" name="category" maxlength="40" placeholder="Ex. 'iPhone Accessories'" required>
                 </div>
                 <div class="col">
-                  <!-- <label for="country">Country</label> -->
+                  <label for="country">Country</label>
                   <select class="form-control" id="country" required>
-                    <option>Country - Select one</option>
+                    <option>Select one</option>
                     <option value="AF">Afghanistan</option>
                     <option value="AX">Aland Islands</option>
                     <option value="AL">Albania</option>
@@ -283,42 +285,44 @@
               </div>
               <div class="form-row">
                 <div class="col-6">
-                  <input type="text" class="form-control" id="name" name="name" maxlength="200" placeholder="Name" required>
+                  <label for="name">Project Name</label>
+                  <input type="text" class="form-control" id="name" name="name" maxlength="200" placeholder="Ex. 'SuperFlex selfie stick!'" required>
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" id="location" name="location" maxlength="50" placeholder="Location" required>
+                  <label for="location">Location</label>
+                  <input type="text" class="form-control" id="location" name="location" maxlength="50" placeholder="Ex. 'Los Angeles, CA'" required>
                 </div>
                 <div class="col-3">
-                  <!-- <label for="goal">Goal</label> -->
-                  <input type="number" class="form-control" id="goal" name="goal" min="0" max="10000000" placeholder="Goal (USD)" required>
+                  <label for="goal">Monetary Goal</label>
+                  <input type="number" class="form-control" id="goal" name="goal" min="0" max="10000000" placeholder="in US dollars!" required>
                 </div>
               </div>
               <div class="form-row">
                 <div class="col">
-                  <!-- <label for="state">State</label> -->
-                  <input type="text" class="form-control" id="state" name="state" maxlength="50" placeholder="State" required>
+                  <label for="state">State</label>
+                  <input type="text" class="form-control" id="state" name="state" maxlength="50" placeholder="Something here?" required>
                 </div>
                 <div class="col">
-                  <!-- <label for="usd_type">Currency</label> -->
+                  <label for="usd_type">Accepted Currency</label>
                   <select class="form-control" id="usd_type" aria-describedby="usdtHelp" required>
-                    <option>Currency - Select one</option>
-                    <option>Domestic</option>
-                    <option>International</option>
+                    <option>Select one</option>
+                    <option value="Domestic">Domestic</option>
+                    <option value="International">International</option>
                   </select>
                   <small id="usdtHelp" class="form-text text-muted">Choose 'International' if currencies other than USD will be accepted</small>
                 </div>
                 <div class="col-2">
                   <label for="days_allocated">Days Allocated</label>
-                  <input type="number" class="form-control" id="days_allocated" name="days_allocated" min="0" max="365" required>
+                  <input type="number" class="form-control" id="days_allocated" name="days_allocated" min="0" max="365" placeholder="0-365" required>
                 </div>
                 <div class="col-2">
-                  <label for="days_before_launch">Days Before Launch</label>
-                  <input type="number" class="form-control" id="days_before_launch" name="days_before_launch" min="0" max="365" required>
+                  <label for="days_before_launch">Days to Launch</label>
+                  <input type="number" class="form-control" id="days_before_launch" name="days_before_launch" min="0" max="365" placeholder="0-365" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="blurb">Short description</label>
-                <textarea class="form-control" id="blurb" rows="10" minlength="100" maxlength="1000" placeholder="Max limit of 1000 characters" required></textarea>
+                <label for="blurb">Description</label>
+                <textarea class="form-control" id="blurb" rows="10" minlength="100" maxlength="1000" placeholder="Please provide a short description of the Kickstarter project, the limit is 1000 characters" required></textarea>
               </div>
               <!-- <div class="form-group">
                 <label for="location_type">Location Type</label>
