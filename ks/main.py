@@ -11,7 +11,7 @@ main = Blueprint('main', __name__)
 @main.route("/")
 def root():
     """Redirects to... """
-    return redirect(url_for('main.home')) 
+    return redirect("/home") 
     # render_template("signup.html", title="Register")
 
 @main.route("/home", methods = ["POST"])
@@ -50,10 +50,10 @@ def predict_outcome():
         message1=add_message, message2=predict_message)
 
 
-@main.route("/reset")
-# @login_required
-def reset():
-    """Reset database"""
-    DB.drop_all()
-    DB.create_all()
-    return render_template("home.html")
+# @main.route("/reset")
+# # @login_required
+# def reset():
+#     """Reset database"""
+#     DB.drop_all()
+#     DB.create_all()
+#     return render_template("home.html")
