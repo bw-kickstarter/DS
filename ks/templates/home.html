@@ -10,24 +10,22 @@
   </div>
   <div class="bs-docs-section">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-10">
         <div class="bs-component">
           <form action="/home" method="post">
             <fieldset>
               <legend>Input Kickstarter's information</legend>
               <div class="form-row">
-                <div class="col-auto">
-                  <label for="user_email">Email</label>
-                  <input type="email" class="form-control" id="user_email" required>
+                <div class="col-6">
+                  <input type="email" class="form-control" id="user_email" placeholder="Email" required>
                 </div>
-                <div class="col-auto">
-                  <label for="category">Category</label>
-                  <input type="text" class="form-control" id="category" name="category" maxlength="40" required>
+                <div class="col">
+                  <input type="text" class="form-control" id="category" name="category" maxlength="40" placeholder="Category" required>
                 </div>
-                <div class="col-auto">
-                  <label for="country">Country</label>
+                <div class="col">
+                  <!-- <label for="country">Country</label> -->
                   <select class="form-control" id="country" required>
-                    <option>select one</option>
+                    <option>Country - Select one</option>
                     <option value="AF">Afghanistan</option>
                     <option value="AX">Aland Islands</option>
                     <option value="AL">Albania</option>
@@ -284,44 +282,43 @@
                 </div>
               </div>
               <div class="form-row">
-                <div class="col-auto">
-                  <label for="goal">Goal</label>
-                  <input type="number" class="form-control" id="goal" name="goal" min="0" max="10000000" required>
+                <div class="col-6">
+                  <input type="text" class="form-control" id="name" name="name" maxlength="200" placeholder="Name" required>
                 </div>
-                <div class="col-auto">
-                  <label for="location">Location</label>
-                  <input type="text" class="form-control" id="location" name="location" maxlength="50" required>
+                <div class="col">
+                  <input type="text" class="form-control" id="location" name="location" maxlength="50" placeholder="Location" required>
                 </div>
-                <div class="col-auto">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" name="name" maxlength="200" required>
+                <div class="col-3">
+                  <!-- <label for="goal">Goal</label> -->
+                  <input type="number" class="form-control" id="goal" name="goal" min="0" max="10000000" placeholder="Goal (USD)" required>
                 </div>
               </div>
               <div class="form-row">
-                <div class="col-auto">
-                  <label for="state">State</label>
-                  <input type="text" class="form-control" id="state" name="state" required maxlength="50">
+                <div class="col">
+                  <!-- <label for="state">State</label> -->
+                  <input type="text" class="form-control" id="state" name="state" maxlength="50" placeholder="State" required>
                 </div>
-                <div class="col-auto">
-                  <label for="usd_type">Currency</label>
+                <div class="col">
+                  <!-- <label for="usd_type">Currency</label> -->
                   <select class="form-control" id="usd_type" aria-describedby="usdtHelp" required>
+                    <option>Currency - Select one</option>
                     <option>Domestic</option>
                     <option>International</option>
                   </select>
                   <small id="usdtHelp" class="form-text text-muted">Choose 'International' if currencies other than USD will be accepted</small>
                 </div>
-                <div class="col-auto">
+                <div class="col-2">
                   <label for="days_allocated">Days Allocated</label>
                   <input type="number" class="form-control" id="days_allocated" name="days_allocated" min="0" max="365" required>
                 </div>
-                <div class="col-auto">
+                <div class="col-2">
                   <label for="days_before_launch">Days Before Launch</label>
                   <input type="number" class="form-control" id="days_before_launch" name="days_before_launch" min="0" max="365" required>
                 </div>
               </div>
               <div class="form-group">
-                <label for="blurb">Blurb</label>
-                <textarea class="form-control" id="blurb" rows="10" minlength="100" maxlength="1000" required></textarea>
+                <label for="blurb">Short description</label>
+                <textarea class="form-control" id="blurb" rows="10" minlength="100" maxlength="1000" placeholder="Max limit of 1000 characters" required></textarea>
               </div>
               <!-- <div class="form-group">
                 <label for="location_type">Location Type</label>
