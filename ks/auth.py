@@ -21,12 +21,11 @@ def login():
 
     login_user(cred, remember=remember)
 
-    return redirect(url_for('main.root'))
+    return redirect(url_for('main.home'))
 
 
 @auth.route('/signup', methods=['POST'])
 def signup():
-    username = request.form.get('username')
     email = request.form.get('email')
     password = request.form.get('password')
 
@@ -36,7 +35,7 @@ def signup():
         flash('Email address already exists')
         return redirect(url_for('auth.signup'))
 
-    new_cred = User(email=email, username=username, password=password)
+    new_cred = User(email=email, password=password)
 
     DB.session.add(new_cred)
     DB.session.commit()

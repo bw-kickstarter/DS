@@ -1,7 +1,7 @@
 """Routing file for Kickstarter Success App"""
 
 # from os import getenv
-from flask import Flask, render_template, request, Blueprint
+from flask import Flask, render_template, request, Blueprint, redirect, url_for
 from flask_login import LoginManager, login_required, current_user
 from .models import Kickstarter, DB
 from .predict import predict
@@ -11,7 +11,8 @@ main = Blueprint('main', __name__)
 @main.route("/")
 def root():
     """Directs you to signin"""
-    return render_template("login.html", title="Register")
+    return redirect(url_for('auth.login')) 
+    # render_template("signup.html", title="Register")
 
 @main.route("/home", methods = ["POST"])
 @login_required
