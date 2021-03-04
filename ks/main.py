@@ -9,6 +9,7 @@ from .predict import ks_model
 
 main = Blueprint('main', __name__)
 
+
 @main.route("/")
 def root():
     """Renders login page"""

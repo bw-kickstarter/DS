@@ -5,6 +5,7 @@ from flask_login import LoginManager
 DB = SQLAlchemy()
 LM = LoginManager()
 
+
 def create_app():
     """Create Flask Application"""
     app = Flask(__name__)
@@ -25,5 +26,6 @@ def create_app():
     app.register_blueprint(main_blueprint)
 
     return app
+
 
 APP = create_app()
