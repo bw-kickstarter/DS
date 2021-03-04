@@ -3,18 +3,18 @@
 import pandas as pd
 import pickle
 
-def ks_model(bl, cat, cy, gl, loc, name, st, ut, da, db4l):
+def ks_model(blurb, category, country, goal, location, name, state, usd_type, days_allotted, days_before_launch):
     """Receives KS info, returns 0 or 1"""
-    input = pd.DataFrame({'blurb': bl,
-                          'category':cat,
-                          'country':cy,
-                          'goal':gl,
-                          'location':loc,
+    input = pd.DataFrame({'blurb': blurb,
+                          'category':category,
+                          'country':country,
+                          'goal':goal,
+                          'location':location,
                           'name':name,
-                          'state':st,
-                          'usd_type':ut,
-                          'days_allotted':da,
-                          'days_before_launch':db4l})
+                          'state':state,
+                          'usd_type':usd_type,
+                          'days_allotted':days_allotted,
+                          'days_before_launch':days_before_launch})
     
     ks_file = "ks_model.sav"
     model = pickle.load(open(ks_file, 'rb'))

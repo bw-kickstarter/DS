@@ -5,7 +5,7 @@ from flask_login import LoginManager , login_required, current_user, logout_user
 from .models import Kickstarter
 from . import DB
 import pandas as pd
-# from .predict import ks_model
+from .predict import ks_model
 
 main = Blueprint('main', __name__)
 
@@ -38,12 +38,12 @@ def home():
         DB.session.add(db_entry)
         DB.session.commit()
 
-        # prediction = ks_model(bl,cat,cy,gl,loc,name,st,ut,da,db4l)
+        prediction = ks_model(blurb=bl, category=cat, country=cy, goal=gl, location=loc, name=name, state=st, usd_type=ut, days_allotted=da, days_before_launch=db4l)
 
-        # if prediction:
-        #     return render_template("success.html", ks_name=name)
+        if prediction:
+            return render_template("success.html", ks_name=name)
 
-        # return render_template("failure.html", ks_name=name)
+        return render_template("failure.html", ks_name=name)
 
     return render_template("home.html")
 
@@ -63,7 +63,7 @@ def failure():
 
 
 @main.route("/reset")
-# @login_required
+@login_required
 def reset():
     """Reset database"""
     DB.drop_all()
