@@ -11,6 +11,8 @@ spacy = "*"
 gunicorn = "*"
 numpy = "*"
 flask-login = "*"
+python-dotenv = "*"
+jupyter = "*"
 
 [dev-packages]
 
