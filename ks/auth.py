@@ -1,6 +1,6 @@
 """Authentication system"""
 
-from flask import Blueprint, render_template, redirect, flash, request, session
+from flask import Blueprint, render_template, flash, request, session
 from flask_login import login_user, logout_user, login_required, current_user
 from .models import User
 from . import LM, DB
@@ -17,7 +17,6 @@ def login():
     if request.method == "POST":
         email = request.values["email"]
         password = request.values["password"]
-        # remember = True if request.values["remember"] else False
 
         credential = User.query.filter_by(email = email).first()
 

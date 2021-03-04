@@ -1,6 +1,6 @@
 """Main routing for KS App"""
 
-from flask import Flask, render_template, request, redirect, Blueprint, url_for
+from flask import Flask, render_template, request, Blueprint
 from flask_login import LoginManager , login_required, current_user, logout_user
 from .models import Kickstarter
 from . import DB
@@ -18,7 +18,7 @@ def root():
 @main.route("/home", methods=["POST", "GET"])
 @login_required
 def home():
-    """Reads inputs and redirects"""
+    """Reads inputs, calls mmodel, returns prediction page"""
     if request.method == "POST":
         ue = request.values["user_email"]
         cat = request.values["category"]

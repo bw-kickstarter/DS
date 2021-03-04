@@ -29,7 +29,6 @@ class Kickstarter(DB.Model):
     usd_type = DB.Column(DB.String)
     days_alloted = DB.Column(DB.Integer)
     days_before_launch = DB.Column(DB.Integer)
-    # location_type = DB.Column(DB.String)
 
     def __repr__(self):
         return "< Kickstarter: '{}' >".format(self.name)

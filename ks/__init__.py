@@ -1,5 +1,3 @@
-# from os import getenv
-from os import getenv
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -12,13 +10,7 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = "needsecretkey"
-                              # heroku: "needsecretkey"
-                              # flask: getenv("SECRET_KEY")
-
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite3"
-                                           # "sqlite:///db.sqlite3" 
-                                           # getenv("DATABASE_URL")
-
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     LM.login_view = 'auth.login'
