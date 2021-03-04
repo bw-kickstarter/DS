@@ -16,7 +16,7 @@ def root():
 
 
 @main.route("/home", methods=["POST", "GET"])
-@login_required
+# @login_required
 def home():
     """Reads inputs, calls mmodel, returns prediction page"""
     if request.method == "POST":
@@ -49,21 +49,21 @@ def home():
 
 
 @main.route("/success")
-@login_required
+# @login_required
 def success():
     """Success endpoint"""
     return render_template("success.html")
 
 
 @main.route("/failure")
-@login_required
+# @login_required
 def failure():
     """Failure endpoint"""
     return render_template("failure.html")
 
 
 @main.route("/reset")
-@login_required
+# @login_required
 def reset():
     """Reset database"""
     DB.drop_all()
@@ -72,7 +72,7 @@ def reset():
 
 
 @main.route('/logout')
-@login_required
+# @login_required
 def logout():
     """Logout user"""
     logout_user()
