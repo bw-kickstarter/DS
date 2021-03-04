@@ -27,7 +27,7 @@ class Kickstarter(DB.Model):
     name = DB.Column(DB.String)
     state = DB.Column(DB.String)
     usd_type = DB.Column(DB.String)
-    days_alloted = DB.Column(DB.Integer)
+    days_allotted = DB.Column(DB.Integer)
     days_before_launch = DB.Column(DB.Integer)
 
     def __repr__(self):

@@ -10,11 +10,15 @@
             <fieldset>
               <legend style="text-align:center;">Login</legend>
               {% for message in get_flashed_messages() %}
-                <div class="alert alert-warning">
-                  <button type="button" class="close" data-dismiss="alert">
-                    x
-                  </button>
-                  {{ message }}
+                <div class="form-row justify-content-center">
+                  <div class="col-5">
+                    <div class="alert alert-warning">
+                      <button type="button" class="close" data-dismiss="alert">
+                        x
+                      </button>
+                      {{ message }}
+                    </div>
+                  </div>
                 </div>
               {% endfor %}
               <div class="form-row justify-content-center">

@@ -1,6 +1,6 @@
 """Main routing for KS App"""
 
-from flask import Flask, render_template, request, Blueprint
+from flask import Flask, render_template, request, Blueprint, redirect, url_for
 from flask_login import LoginManager , login_required, current_user, logout_user
 from .models import Kickstarter
 from . import DB
@@ -12,8 +12,11 @@ main = Blueprint('main', __name__)
 
 @main.route("/")
 def root():
-    """Renders login page"""
-    return render_template("login.html")
+    """Redirects to home if authenticated, login otherwise"""
+    if current_user.is_authenticated:
+        return redirect("/home")
+    
+    return redirect("/login")
 
 
 @main.route("/home", methods=["POST", "GET"])
@@ -30,51 +33,71 @@ def home():
         name = request.values["name"]
         st = request.values["state"]
         ut = request.values["usd_type"]
-        da = request.values["days_alloted"]
+        da = request.values["days_allotted"]
         db4l = request.values["days_before_launch"]
 
         db_entry = Kickstarter(user_email=ue, category=cat, blurb=bl,
-                               country=cy, goal=gl, location=loc, name=name, state=st, usd_type=ut, days_alloted=da, days_before_launch=db4l)
+                               country=cy, goal=gl, location=loc, name=name, state=st, usd_type=ut, days_allotted=da, days_before_launch=db4l)
 
         DB.session.add(db_entry)
         DB.session.commit()
 
-        prediction = ks_model(blurb=bl, category=cat, country=cy, goal=gl, location=loc, name=name, state=st, usd_type=ut, days_allotted=da, days_before_launch=db4l)
+        prediction = ks_model(category=cat, country=cy, goal=gl, location=loc, state=st, usd_type=ut, days_allotted=da, days_before_launch=db4l)
+        #blurb=bl, name=name, 
 
-        if prediction:
-            return render_template("success.html", ks_name=name)
+        if (prediction == 1):
 
-        return render_template("failure.html", ks_name=name)
+            message1 = "We are pleased to say that based on our analysis, Kickstarter '{}' will most likely succeed!".format(name)
+
+            return render_template("success.html", message=message1)
+
+        elif (prediction == 0):
+        
+            message0 = "We are sorry to say that based on our analysis, Kickstarter '{}' will most likely fail.".format(name)
+
+            return render_template("failure.html", message=message0)
 
     return render_template("home.html")
 
 
 @main.route("/success")
-# @login_required
+@login_required
 def success():
     """Success endpoint"""
+    if not current_user.is_authenticated:
+        return redirect("/login")
+
     return render_template("success.html")
 
 
 @main.route("/failure")
-# @login_required
+@login_required
 def failure():
     """Failure endpoint"""
+    if not current_user.is_authenticated:
+        return redirect("/login")
+
     return render_template("failure.html")
 
 
 @main.route("/reset")
-# @login_required
+@login_required
 def reset():
     """Reset database"""
+    if not current_user.is_authenticated:
+        return redirect("/login")
+
     DB.drop_all()
     DB.create_all()
     return render_template("login.html")
 
 
 @main.route('/logout')
-# @login_required
+@login_required
 def logout():
     """Logout user"""
+    if not current_user.is_authenticated:
+        return redirect("/login")
+
     logout_user()
     return render_template("login.html")
