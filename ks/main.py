@@ -1,6 +1,6 @@
 """Main routing for KS App"""
 
-from flask import Flask, render_template, request, Blueprint, redirect, url_for, jsonify, get_json
+from flask import Flask, render_template, request, Blueprint, redirect, url_for, jsonify
 from flask_login import LoginManager , login_required, current_user, logout_user
 from .models import Kickstarter
 from . import DB
@@ -109,8 +109,8 @@ def team():
     return render_template("team.html")
 
 
-@app.route("/api", methods=["POST","GET"])
-def api_post():
+@main.route("/ks_api", methods=["POST","GET"])
+def ks_api():
     """Reads json request, returns json message"""
     if request.method=='POST':
 
