@@ -1,6 +1,6 @@
 """Main routing for KS App"""
 
-from flask import Flask, render_template, request, Blueprint, redirect, url_for
+from flask import Flask, render_template, request, Blueprint, redirect, url_for, jsonify, get_json
 from flask_login import LoginManager , login_required, current_user, logout_user
 from .models import Kickstarter
 from . import DB
@@ -20,7 +20,7 @@ def root():
 
 
 @main.route("/home", methods=["POST", "GET"])
-# @login_required
+@login_required
 def home():
     """Reads inputs, calls mmodel, returns prediction page"""
     if request.method == "POST":
@@ -52,7 +52,7 @@ def home():
             return render_template("success.html", message=message1)
 
         elif (prediction == 0):
-        
+
             message0 = "We are sorry to say that based on our analysis, Kickstarter '{}' will most likely fail.".format(name)
 
             return render_template("failure.html", message=message0)
@@ -101,3 +101,49 @@ def logout():
 
     logout_user()
     return render_template("login.html")
+
+
+@main.route("/team")
+def team():
+    """Team info"""    
+    return render_template("team.html")
+
+
+@app.route("/api", methods=["POST","GET"])
+def api_post():
+    """Reads json request, returns json message"""
+    if request.method=='POST':
+
+        posted_data = request.get_json()
+        input = posted_data['data'] 
+
+        prediction = ks_model(category=input['category'],
+                              country=input['country'],
+                              goal=input['goal'],
+                              location=input['location'],
+                              state=input['state'],
+                              usd_type=input['usd_type'],
+                              days_allotted=input['days_allotted'], days_before_launch=input['days_before_launch'])
+
+        if prediction == 1:
+            message = "Kickstarter campaign will succeed"
+
+        elif prediction == 0:
+            message = "Kickstarter campaign will fail"
+
+        pass
+
+    return jsonify(message)
+
+# API call example:
+
+# dat = { 'category':"some category",
+#         'country':"Wakanda",
+#         'goal':"42",
+#         'location':"somewhere",
+#         'state':"CA",
+#         'usd_type':"domestic",
+#         'days_allotted':"0",
+#         'days_before_launch':"1" }
+
+# req=request.post("https://bw-kickstarter-success.herokuapp.com/hapi",data=dat)
