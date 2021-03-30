@@ -13,14 +13,15 @@ main = Blueprint('main', __name__)
 @main.route("/")
 def root():
     """Redirects to home if authenticated, login otherwise"""
-    if current_user.is_authenticated:
-        return redirect("/home")
+    # if current_user.is_authenticated:
+    #     return redirect("/home")
     
-    return redirect("/login")
+    return redirect("/home")
+    # return redirect("/login")
 
 
 @main.route("/home", methods=["POST", "GET"])
-@login_required
+# @login_required
 def home():
     """Reads inputs, calls mmodel, returns prediction page"""
     if request.method == "POST":
@@ -61,7 +62,7 @@ def home():
 
 
 @main.route("/success")
-@login_required
+# @login_required
 def success():
     """Success endpoint"""
     if not current_user.is_authenticated:
@@ -71,7 +72,7 @@ def success():
 
 
 @main.route("/failure")
-@login_required
+# @login_required
 def failure():
     """Failure endpoint"""
     if not current_user.is_authenticated:
@@ -81,7 +82,7 @@ def failure():
 
 
 @main.route("/reset")
-@login_required
+# @login_required
 def reset():
     """Reset database"""
     if not current_user.is_authenticated:
@@ -93,7 +94,7 @@ def reset():
 
 
 @main.route('/logout')
-@login_required
+# @login_required
 def logout():
     """Logout user"""
     if not current_user.is_authenticated:

@@ -18,32 +18,32 @@
             <a class="nav-link" href="/">Home</a></li>
           <li class="nav-item">
             <a class="nav-link" href="/team">Our Team</a></li>
-          {% if current_user.is_authenticated %}
+          <!-- {% if current_user.is_authenticated %} -->
           <!-- <li class="nav-item">
             <a class="nav-link" href="/current">Database</a></li>
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contact</a></li> -->
           <li class="nav-item">
             <a class="nav-link" href="/reset">Reset Database</a></li>
-          {% endif %}
-          {% if not current_user.is_authenticated %}
+          <!-- {% endif %} -->
+          <!-- {% if not current_user.is_authenticated %} -->
           <!-- <li class="nav-item">
             <a class="nav-link disabled" href="/current">Database</a></li>
           <li class="nav-item">
             <a class="nav-link disabled" href="/contact">Contact</a></li> -->
           <li class="nav-item">
             <a class="nav-link disabled" href="/reset">Reset Database</a></li>
-          {% endif %}
+          <!-- {% endif %} -->
         </ul>
         <ul class="navbar-nav ml-auto">
-          {% if current_user.is_authenticated %}
+          <!-- {% if current_user.is_authenticated %} -->
           <li class="nav-item" style="align-self: flex-end;">
             <a class="nav-link" href="/logout">Logout</a></li>
-          {% endif %}
-          {% if not current_user.is_authenticated %}
+          <!-- {% endif %} -->
+          <!-- {% if not current_user.is_authenticated %} -->
           <li class="nav-item" style="align-self: flex-end;">
             <a class="nav-link disabled" href="/logout">Logout</a></li>
-          {% endif %}
+          <!-- {% endif %} -->
         </ul>
       </div>
     </div>

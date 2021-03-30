@@ -58,16 +58,16 @@ def register():
     return render_template("register.html")
 
 
-@LM.user_loader
-def load_user(user_id):
-    """Checks if user is logged in"""
-    if user_id:
-        return User.query.get(user_id)
-    return None
+# @LM.user_loader
+# def load_user(user_id):
+#     """Checks if user is logged in"""
+#     if user_id:
+#         return User.query.get(user_id)
+#     return None
 
 
-@LM.unauthorized_handler
-def unauthorized():
-    """Redirects unauthorized users"""
-    flash("You must be logged in to view that page.")
-    return render_template("login.html")
+# @LM.unauthorized_handler
+# def unauthorized():
+#     """Redirects unauthorized users"""
+#     flash("You must be logged in to view that page.")
+#     return render_template("login.html")

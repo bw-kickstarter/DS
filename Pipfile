@@ -13,6 +13,7 @@ python-dotenv = "*"
 numpy = "*"
 sklearn = "*"
 scikit-learn = "*"
+stop-words = "*"
 
 [dev-packages]
 
