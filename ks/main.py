@@ -65,8 +65,8 @@ def home():
 # @login_required
 def success():
     """Success endpoint"""
-    if not current_user.is_authenticated:
-        return redirect("/login")
+    # if not current_user.is_authenticated:
+    #     return redirect("/login")
 
     return render_template("success.html")
 
@@ -75,8 +75,8 @@ def success():
 # @login_required
 def failure():
     """Failure endpoint"""
-    if not current_user.is_authenticated:
-        return redirect("/login")
+    # if not current_user.is_authenticated:
+    #     return redirect("/login")
 
     return render_template("failure.html")
 
@@ -85,20 +85,21 @@ def failure():
 # @login_required
 def reset():
     """Reset database"""
-    if not current_user.is_authenticated:
-        return redirect("/login")
+    # if not current_user.is_authenticated:
+    #     return redirect("/login")
 
     DB.drop_all()
     DB.create_all()
-    return render_template("login.html")
+    return render_template("home.html")
+    # return render_template("login.html")
 
 
 @main.route('/logout')
 # @login_required
 def logout():
     """Logout user"""
-    if not current_user.is_authenticated:
-        return redirect("/login")
+    # if not current_user.is_authenticated:
+    #     return redirect("/login")
 
     logout_user()
     return render_template("login.html")
